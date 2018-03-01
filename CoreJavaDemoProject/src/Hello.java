@@ -2,7 +2,6 @@
 public class Hello {
 	public static void main(String[]a) {
 			System.out.println("Hello Java");
-			System.out.println("I am Git Oriented");
 			
 			int i = 0b111;
 			
@@ -12,5 +11,10 @@ public class Hello {
 			
 			System.out.println("o===="+o);
 			
+		
+			System.out.println("I am Git Oriented"); 
+		
+		
+		
 	}
 }
