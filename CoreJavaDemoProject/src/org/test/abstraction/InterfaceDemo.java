@@ -14,12 +14,17 @@ interface X {
 	void action();
 }
 
-interface Y extends X{
-	int doSomething();
+class Y {
+	void action() {
+		
+	}
 }
 
-class XImpl implements X {
+class XImpl extends Y implements X {
+	
+	@Override
 	public void action() {
 		System.out.println("In impl");
 	}
+
 }
