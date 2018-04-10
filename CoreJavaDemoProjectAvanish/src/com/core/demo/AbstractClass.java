@@ -27,6 +27,7 @@ interface k {
 
 interface I extends j,k {
 	void foo();
+	
 }
 
 class X implements j,k {
