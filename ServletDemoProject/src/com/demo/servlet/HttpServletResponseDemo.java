@@ -22,6 +22,15 @@ public class HttpServletResponseDemo extends HttpServlet {
 		response.addCookie(new Cookie("cookieName","CookieVal")); //
 		
 		
+		response.getContentType(); // Returns content type sent by the client
+		
+		response.getHeader("header"); // REturns value of response header attr
+		
+		//response.sendError("error code"); // Send error on the basis of error codes
+		
+		response.isCommitted(); //  Checks if response is already commited
+		
+		
 		
 	}
 

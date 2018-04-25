@@ -4,4 +4,29 @@
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
+  
+  
+  
+  <listener id="contextListener"  >
+  	<listener-class>com.demo.servlet.event.ServletContextEventImpl</listener-class>
+  </listener>
+  
+  <filter>
+  		<filter-name>myFilter</filter-name>
+  		<filter-class>com.demo.servlet.session.MyFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>myFilter</filter-name>
+  	<url-pattern>/ServletFilterDemo</url-pattern>
+  </filter-mapping>
+  
+  <context-param>
+    <param-name>dburl</param-name>
+    <param-value>jdbc:mysql://localhost:3306/test</param-value>
+  </context-param>
+  <context-param>
+    <param-name>smsEndPoint</param-name>
+    <param-value>https:localtext/send?param:{0}</param-value>
+  </context-param>
 </web-app>
