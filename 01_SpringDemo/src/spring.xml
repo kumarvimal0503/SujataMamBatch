@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="operation" class="com.springdemo.bean.Operation" scope="prototype" >
+		<constructor-arg ref="addOpr" />
+	</bean>
+	<bean id="addOpr" class="com.springdemo.bean.AddOperation" >
+		<property value="10" name="num1" />
+		<property value="20" name="num2" />
+	</bean>
+	<bean id="a" class="com.springdemo.bean.A" init-method="myInit" autowire="constructor"></bean>
+	
+	<bean id="b" class="com.springdemo.bean.B"></bean>
+	
+	<bean id="beanLifeCycleDemo" class="com.springdemo.bean.BeanLifeCycleDemo"
+		init-method="myInit"
+		destroy-method="destroy">
+		<property name="data" value="Adam"></property>
+	</bean>
+	
+	<bean id="student" class="com.springdemo.bean.Student">
+		<property name="emails">
+			<list>
+				<value>x@example.com</value>
+				<value>y@example.com</value>
+				<value>z@example.com</value>			
+			</list>		
+		</property>
+		<property name="aList">
+			<list>
+				<ref bean="a" />
+			</list>
+		</property>
+		<property name="subjectNames">
+			<set>
+				<value>Java</value>
+				<value>C++</value>
+				<value>Python</value>
+			</set>
+		</property>
+		
+		<property name="subjects">
+			<set>
+				<!-- <ref bean="javaSubject"/> -->
+				<bean id="javaSubject" class="com.springdemo.bean.Subject">
+					<property name="subjectName" value="Java" />
+				</bean>
+			</set>
+		</property>
+		
+		<property name="marks">
+			<map>
+				<entry key="Java" value="80" />
+				<entry key="C++" value="70" />
+				<entry key="Python" value="90" />
+			</map>
+		</property>
+		
+		<property name="attendenceDetails">
+			<props>
+				<prop key="jan">50%</prop>
+				<prop key="feb">60%</prop>
+				<prop key="mar">40%</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="javaSubject" class="com.springdemo.bean.Subject">
+		<property name="subjectName" value="Java" />
+	</bean>
+	
+</beans>
